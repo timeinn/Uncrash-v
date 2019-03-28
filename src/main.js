@@ -3,7 +3,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 import i18n from './locales'
-import './core/use.lazy'
 import bootstrap from './core/bootstrap'
 
 Vue.config.productionTip = false

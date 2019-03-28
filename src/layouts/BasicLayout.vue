@@ -40,8 +40,7 @@
       />
 
       <!-- layout content -->
-      <a-layout-content :style="{ height: '100%', margin: multiTab ? '24px 24px 0' : '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }">
-        <multi-tab v-if="multiTab" />
+      <a-layout-content :style="{ height: '100%', margin: '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }">
         <transition name="page-transition">
           <route-view />
         </transition>
@@ -61,17 +60,17 @@ import { mapState, mapActions } from 'vuex'
 import { mixin, mixinDevice } from '@/utils/mixin'
 
 import RouteView from './RouteView'
-import MultiTab from '@/components/MultiTab'
 import SideMenu from '@/components/Menu/SideMenu'
 import GlobalHeader from '@/components/GlobalHeader'
 import GlobalFooter from '@/components/GlobalFooter'
+
+import { asyncRouterMap } from '@/config/router.config'
 
 export default {
   name: 'BasicLayout',
   mixins: [mixin, mixinDevice],
   components: {
     RouteView,
-    MultiTab,
     SideMenu,
     GlobalHeader,
     GlobalFooter
@@ -103,7 +102,8 @@ export default {
     }
   },
   created () {
-    this.menus = this.mainMenu.find(item => item.path === '/').children
+    // this.menus = this.mainMenu.find(item => item.path === '/').children
+    this.menus = asyncRouterMap.find(item => item.path === '/').children
     this.collapsed = !this.sidebarOpened
   },
   mounted () {

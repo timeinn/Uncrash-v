@@ -68,7 +68,7 @@ module.exports = {
     port: 8000,
     proxy: {
       '/api': {
-        target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro/api',
+        target: 'https://mock.ihx.me/mock/5c0391e7f7da7e07e04a512c/uncrash/api',
         ws: false,
         changeOrigin: true,
         pathRewrite: {

@@ -1,53 +1,45 @@
 <template>
   <div class="main user-layout-register">
     <h3><span>注册</span></h3>
-    <a-form ref="formRegister" :auto-form-create="(form)=>{this.form = form}" id="formRegister">
+    <a-form ref="formRegister" :autoFormCreate="(form)=>{this.form = form}" id="formRegister">
       <a-form-item
-        field-decorator-id="email"
-        :field-decorator-options="{rules: [{ required: true, type: 'email', message: '请输入邮箱地址' }], validateTrigger: ['change', 'blur']}"
-      >
-        <a-input size="large" type="text" placeholder="邮箱" />
+        fieldDecoratorId="email"
+        :fieldDecoratorOptions="{rules: [{ required: true, type: 'email', message: '请输入邮箱地址' }], validateTrigger: ['change', 'blur']}">
+
+        <a-input size="large" type="text" placeholder="邮箱"></a-input>
       </a-form-item>
 
       <a-popover placement="rightTop" trigger="click" :visible="state.passwordLevelChecked">
         <template slot="content">
-          <div :style="{ width: '240px' }">
-            <div :class="['user-register', passwordLevelClass]">
-              强度：<span>{{ passwordLevelName }}</span>
-            </div>
-            <a-progress :percent="state.percent" :show-info="false" :stroke-color=" passwordLevelColor " />
+          <div :style="{ width: '240px' }" >
+            <div :class="['user-register', passwordLevelClass]">强度：<span>{{ passwordLevelName }}</span></div>
+            <a-progress :percent="state.percent" :showInfo="false" :strokeColor=" passwordLevelColor " />
             <div style="margin-top: 10px;">
               <span>请至少输入 6 个字符。请不要使用容易被猜到的密码。</span>
             </div>
           </div>
         </template>
         <a-form-item
-          field-decorator-id="password"
-          :field-decorator-options="{rules: [{ required: true, message: '至少6位密码，区分大小写'}, { validator: this.handlePasswordLevel }], validateTrigger: ['change', 'blur']}"
-        >
-          <a-input size="large" type="password" @click="handlePasswordInputClick" autocomplete="false" placeholder="至少6位密码，区分大小写" />
+          fieldDecoratorId="password"
+          :fieldDecoratorOptions="{rules: [{ required: true, message: '至少6位密码，区分大小写'}, { validator: this.handlePasswordLevel }], validateTrigger: ['change', 'blur']}">
+          <a-input size="large" type="password" @click="handlePasswordInputClick" autocomplete="false" placeholder="至少6位密码，区分大小写"></a-input>
         </a-form-item>
       </a-popover>
 
       <a-form-item
-        field-decorator-id="password2"
-        :field-decorator-options="{rules: [{ required: true, message: '至少6位密码，区分大小写' }, { validator: this.handlePasswordCheck }], validateTrigger: ['change', 'blur']}"
-      >
-        <a-input size="large" type="password" autocomplete="false" placeholder="确认密码" />
+        fieldDecoratorId="password2"
+        :fieldDecoratorOptions="{rules: [{ required: true, message: '至少6位密码，区分大小写' }, { validator: this.handlePasswordCheck }], validateTrigger: ['change', 'blur']}">
+
+        <a-input size="large" type="password" autocomplete="false" placeholder="确认密码"></a-input>
       </a-form-item>
 
       <a-form-item
-        field-decorator-id="mobile"
-        :field-decorator-options="{rules: [{ required: true, message: '请输入正确的手机号', pattern: /^1[3456789]\d{9}$/ }, { validator: this.handlePhoneCheck } ], validateTrigger: ['change', 'blur'] }"
-      >
+        fieldDecoratorId="mobile"
+        :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入正确的手机号', pattern: /^1[3456789]\d{9}$/ }, { validator: this.handlePhoneCheck } ], validateTrigger: ['change', 'blur'] }">
         <a-input size="large" placeholder="11 位手机号">
-          <a-select slot="addonBefore" size="large" default-value="+86">
-            <a-select-option value="+86">
-              +86
-            </a-select-option>
-            <a-select-option value="+87">
-              +87
-            </a-select-option>
+          <a-select slot="addonBefore" size="large" defaultValue="+86">
+            <a-select-option value="+86">+86</a-select-option>
+            <a-select-option value="+87">+87</a-select-option>
           </a-select>
         </a-input>
       </a-form-item>
@@ -62,11 +54,10 @@
       <a-row :gutter="16">
         <a-col class="gutter-row" :span="16">
           <a-form-item
-            field-decorator-id="captcha"
-            :field-decorator-options="{rules: [{ required: true, message: '请输入验证码' }], validateTrigger: 'blur'}"
-          >
+            fieldDecoratorId="captcha"
+            :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入验证码' }], validateTrigger: 'blur'}">
             <a-input size="large" type="text" placeholder="验证码">
-              <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }" />
+              <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
         </a-col>
@@ -76,8 +67,7 @@
             size="large"
             :disabled="state.smsSendBtn"
             @click.stop.prevent="getCaptcha"
-            v-text="!state.smsSendBtn && '获取验证码'||(state.time+' s')"
-          />
+            v-text="!state.smsSendBtn && '获取验证码'||(state.time+' s')"></a-button>
         </a-col>
       </a-row>
 
@@ -85,24 +75,22 @@
         <a-button
           size="large"
           type="primary"
-          html-type="submit"
+          htmlType="submit"
           class="register-button"
           :loading="registerBtn"
           @click.stop.prevent="handleSubmit"
-          :disabled="registerBtn"
-        >
-          注册
+          :disabled="registerBtn">注册
         </a-button>
-        <router-link class="login" :to="{ name: 'login' }">
-          使用已有账户登录
-        </router-link>
+        <router-link class="login" :to="{ name: 'login' }">使用已有账户登录</router-link>
       </a-form-item>
+
     </a-form>
   </div>
 </template>
 
 <script>
-import { mixinDevice } from '@/utils/mixin'
+import { mixinDevice } from '@/utils/mixin.js'
+import { getSmsCaptcha } from '@/api/auth'
 
 const levelNames = {
   0: '低',
@@ -237,8 +225,23 @@ export default {
                 window.clearInterval(interval)
               }
             }, 1000)
-            // eslint-disable-next-line
+
             const hide = this.$message.loading('验证码发送中..', 0)
+
+            getSmsCaptcha({ mobile: values.mobile }).then(res => {
+              setTimeout(hide, 2500)
+              this.$notification['success']({
+                message: '提示',
+                description: '验证码获取成功，您的验证码为：' + res.result.captcha,
+                duration: 8
+              })
+            }).catch(err => {
+              setTimeout(hide, 1)
+              clearInterval(interval)
+              that.state.time = 60
+              that.state.smsSendBtn = false
+              this.requestFailed(err)
+            })
           }
         }
       )
