@@ -30,6 +30,24 @@ export const asyncRouterMap = [
             meta: { title: '工作台', keepAlive: true, permission: [ 'dashboard' ] }
           }
         ]
+      },
+
+      // list
+      {
+        path: '/list',
+        name: 'list',
+        component: PageView,
+        redirect: '/list/table-list',
+        meta: { title: '列表页', icon: 'table', permission: [ 'table' ] },
+        children: [
+          {
+            path: '/list/table-list',
+            name: 'TableListWrapper',
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            component: () => import('@/views/server/TableList'),
+            meta: { title: '查询表格', keepAlive: true, permission: [ 'table' ] }
+          }
+        ]
       }
     ]
   },
