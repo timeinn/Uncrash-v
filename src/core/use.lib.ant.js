@@ -85,7 +85,7 @@ Vue.use(Upload)
 Vue.use(Progress)
 Vue.use(Skeleton)
 Vue.use(Popconfirm)
-Vue.use(notification)
+// Vue.use(notification)
 
 Vue.prototype.$message = message
 Vue.prototype.$notification = notification

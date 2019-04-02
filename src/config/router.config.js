@@ -50,10 +50,6 @@ export const asyncRouterMap = [
         ]
       }
     ]
-  },
-  {
-    path: '/404',
-    component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
   }
 ]
 
@@ -102,6 +98,9 @@ export const constantRouterMap = [
   {
     path: '/404',
     component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
+  },
+  {
+    path: '*',
+    component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
   }
-
 ]

@@ -65,7 +65,8 @@ module.exports = {
   // development configure
   devServer: {
     // development server port 8000
-    port: 8000,
+    host: 'dev.uncrash.net',
+    port: 80,
     proxy: {
       '/api': {
         target: 'https://mock.ihx.me/mock/5c0391e7f7da7e07e04a512c/uncrash/api',

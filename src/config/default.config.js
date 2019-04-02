@@ -1,5 +1,5 @@
 export default {
-  defaultLang: 'en-US',
+  defaultLang: 'en-US', // 'en-US',
   primaryColor: '#1890FF', // primary color of ant design
   navTheme: 'dark', // theme for nav menu
   layout: 'topmenu', // nav menu position: sidemenu or topmenu
