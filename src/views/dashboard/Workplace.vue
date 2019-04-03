@@ -3,7 +3,7 @@
   <page-view :avatar="avatar" :title="false">
     <div slot="headerContent">
       <div class="title">{{ timeFix }}，{{ nickname() }}</div>
-      <div>前端工程师 | 蚂蚁金服 - 某某某事业群 - VUE平台</div>
+      <div>{{ userInfo.bio }}</div>
     </div>
     <div slot="extra">
       <a-row class="more-info">
@@ -50,6 +50,9 @@ export default {
   computed: {
     avatar () {
       return this.$store.getters.avatar
+    },
+    userInfo () {
+      return this.$store.getters.userInfo
     }
   },
   created () {

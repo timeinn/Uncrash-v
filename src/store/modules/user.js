@@ -35,9 +35,7 @@ const user = {
     // 登录
     Login ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
-        console.log('userInfo', userInfo)
         userLogin(userInfo).then(response => {
-          console.log('response', response)
           const result = response.result
           Vue.storage.set(ACCESS_TOKEN, result.token, 7 * 24 * 60 * 60 * 1000)
           commit('SET_TOKEN', result.token)

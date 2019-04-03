@@ -34,20 +34,10 @@ export const asyncRouterMap = [
 
       // list
       {
-        path: '/list',
-        name: 'list',
-        component: PageView,
-        redirect: '/list/table-list',
-        meta: { title: '服务器', icon: 'database', permission: [ 'table' ] },
-        children: [
-          {
-            path: '/list/table-list',
-            name: 'TableListWrapper',
-            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
-            component: () => import('@/views/server/TableList'),
-            meta: { title: '查询表格', keepAlive: true, permission: [ 'table' ] }
-          }
-        ]
+        path: '/server-list',
+        name: 'serverList',
+        component: () => import('@/views/server/TableList'),
+        meta: { title: '服务器', icon: 'database', permission: [ 'table' ] }
       },
 
       // api

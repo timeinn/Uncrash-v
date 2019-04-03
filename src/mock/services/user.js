@@ -8,6 +8,7 @@ const info = () => {
     'username': 'admin',
     'password': '',
     'avatar': '/avatar2.jpg',
+    'bio': 'As long as you remember her, you are not alone.',
     'status': 1,
     'telephone': '',
     'lastLoginIp': '27.154.74.117',

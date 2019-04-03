@@ -2,6 +2,7 @@ import Mock from 'mockjs'
 
 import './services/auth'
 import './services/user'
+import './services/server'
 
 Mock.setup({
   timeout: 800 // 设置延迟响应，模拟向后端请求数据
