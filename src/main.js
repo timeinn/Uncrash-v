@@ -5,6 +5,9 @@ import store from './store'
 import i18n from './locales'
 import bootstrap from './core/bootstrap'
 
+// mock data
+import './mock'
+
 Vue.config.productionTip = false
 
 new Vue({

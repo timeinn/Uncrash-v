@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <lang-selector :lang-list="langList" />
+    <lang-selector style="position: absolute;right: 0;top: 0;margin: 2rem 2rem 0 0;" :lang-list="langList" />
   </div>
 </template>
 

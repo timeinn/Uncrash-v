@@ -14,7 +14,7 @@ const service = axios.create({
 const err = (error) => {
   if (error.response) {
     const data = error.response.data
-    const token = Vue.ls.get(ACCESS_TOKEN)
+    const token = Vue.storage.get(ACCESS_TOKEN)
     if (error.response.status === 403) {
       notification.error({
         message: 'Forbidden',
@@ -40,7 +40,7 @@ const err = (error) => {
 
 // request interceptor
 service.interceptors.request.use(config => {
-  const token = Vue.ls.get(ACCESS_TOKEN)
+  const token = Vue.storage.get(ACCESS_TOKEN)
   if (token) {
     config.headers['Access-Token'] = token // 让每个请求携带自定义 token 请根据实际情况自行修改
   }

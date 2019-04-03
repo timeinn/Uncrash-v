@@ -66,17 +66,17 @@ module.exports = {
   devServer: {
     // development server port 8000
     host: 'dev.uncrash.net',
-    port: 80,
-    proxy: {
-      '/api': {
-        target: 'https://mock.ihx.me/mock/5c0391e7f7da7e07e04a512c/uncrash/api',
-        ws: false,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
+    port: 80
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://mock.ihx.me/mock/5c0391e7f7da7e07e04a512c/uncrash/api',
+    //     ws: false,
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // }
   },
 
   // check eslint rules in development mode: boolean | 'error' | undefined

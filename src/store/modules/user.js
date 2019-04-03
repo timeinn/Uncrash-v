@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { login, getInfo, logout } from '@/api/auth'
+import { userLogin, getInfo, logout } from '@/api/auth'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 const user = {
@@ -35,12 +35,15 @@ const user = {
     // 登录
     Login ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
-        login(userInfo).then(response => {
+        console.log('userInfo', userInfo)
+        userLogin(userInfo).then(response => {
+          console.log('response', response)
           const result = response.result
           Vue.storage.set(ACCESS_TOKEN, result.token, 7 * 24 * 60 * 60 * 1000)
           commit('SET_TOKEN', result.token)
           resolve()
         }).catch(error => {
+          console.log(error)
           reject(error)
         })
       })

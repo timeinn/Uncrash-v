@@ -18,7 +18,7 @@ const api = {
  * @param parameter
  * @returns {*}
  */
-export function login (parameter) {
+export function userLogin (parameter) {
   return axios({
     url: api.login,
     method: 'post',

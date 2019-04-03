@@ -1,4 +1,4 @@
 import LangSelector from './LangSelector'
-import('./index.less')
+// import('./index.less')
 
 export default LangSelector

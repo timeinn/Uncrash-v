@@ -38,7 +38,7 @@
       </a-menu>
     </a-dropdown>
     <!-- select lang component -->
-    <lang-selector :lang-list="langList"/>
+    <lang-selector class="action" style="display: inline-block" :lang-list="langList"/>
   </div>
 </template>
 
