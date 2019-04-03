@@ -37,17 +37,27 @@
         </a-menu-item>
       </a-menu>
     </a-dropdown>
+    <!-- select lang component -->
+    <lang-selector :lang-list="langList"/>
   </div>
 </template>
 
 <script>
 import NoticeIcon from '@/components/NoticeIcon'
+import LangSelector from '@/components/LangSelector'
+import langList from '@/locales/langs'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'UserMenu',
   components: {
+    LangSelector,
     NoticeIcon
+  },
+  data () {
+    return {
+      langList
+    }
   },
   methods: {
     ...mapActions(['Logout']),

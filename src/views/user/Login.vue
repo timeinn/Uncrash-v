@@ -17,10 +17,10 @@
             <a-input
               size="large"
               type="text"
-              placeholder="Username or email"
+              :placeholder="$t('Login.tab1.placeholder.username')"
               v-decorator="[
                 'username',
-                {rules: [{ required: true, message: 'plase input username or email' }, { validator: handleUsernameOrEmail }], validateTrigger: 'change'}
+                {rules: [{ required: true, message: $t('Login.tab1.placeholder.usernameMessage') }, { validator: handleUsernameOrEmail }], validateTrigger: 'change'}
               ]"
             >
               <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
@@ -32,19 +32,19 @@
               size="large"
               type="password"
               autocomplete="false"
-              placeholder="Password"
+              :placeholder="$t('Login.tab1.placeholder.password')"
               v-decorator="[
                 'password',
-                {rules: [{ required: true, message: 'plase input password' }], validateTrigger: 'blur'}
+                {rules: [{ required: true, message: $t('Login.tab1.placeholder.passwordMessage') }], validateTrigger: 'blur'}
               ]"
             >
               <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
         </a-tab-pane>
-        <a-tab-pane key="tab2" tab="Telephone">
+        <a-tab-pane key="tab2" :tab="$t('Login.tab2.tabTitle')">
           <a-form-item>
-            <a-input size="large" type="text" placeholder="Telephone" v-decorator="['mobile', {rules: [{ required: true, pattern: /^1[34578]\d{9}$/, message: '请输入正确的手机号' }], validateTrigger: 'change'}]">
+            <a-input size="large" type="text" :placeholder="$t('Login.tab2.placeholder.mobile')" v-decorator="['mobile', {rules: [{ required: true, pattern: /^1[34578]\d{9}$/, message: $t('Login.tab2.placeholder.mobileMessage') }], validateTrigger: 'change'}]">
               <a-icon slot="prefix" type="mobile" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>
@@ -52,7 +52,7 @@
           <a-row :gutter="16">
             <a-col class="gutter-row" :span="16">
               <a-form-item>
-                <a-input size="large" type="text" placeholder="Captcha" v-decorator="['captcha', {rules: [{ required: true, message: '请输入验证码' }], validateTrigger: 'blur'}]">
+                <a-input size="large" type="text" :placeholder="$t('Login.tab2.placeholder.captcha')" v-decorator="['captcha', {rules: [{ required: true, message: $t('Login.tab2.placeholder.captchaMessage') }], validateTrigger: 'blur'}]">
                   <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                 </a-input>
               </a-form-item>
@@ -63,7 +63,7 @@
                 tabindex="-1"
                 :disabled="state.smsSendBtn"
                 @click.stop.prevent="getCaptcha"
-                v-text="!state.smsSendBtn && 'Get Captcha' || (state.time+' s')"
+                v-text="!state.smsSendBtn && $t('Login.tab2.placeholder.getCaptcha') || (state.time+' s')"
               ></a-button>
             </a-col>
           </a-row>
@@ -87,11 +87,11 @@
           class="login-button"
           :loading="state.loginBtn"
           :disabled="state.loginBtn"
-        >Submit</a-button>
+        >{{ $t('Login.submit') }}</a-button>
       </a-form-item>
 
       <div class="user-login-other">
-        <span>SNS Login</span>
+        <span>{{ $t('Login.snsLogin') }}</span>
         <a>
           <a-icon class="item-icon" type="alipay-circle"></a-icon>
         </a>
@@ -101,7 +101,7 @@
         <a>
           <a-icon class="item-icon" type="weibo-circle"></a-icon>
         </a>
-        <router-link class="register" :to="{ name: 'register' }">Register</router-link>
+        <router-link class="register" :to="{ name: 'register' }">{{ $t('Login.register') }}</router-link>
       </div>
     </a-form>
 

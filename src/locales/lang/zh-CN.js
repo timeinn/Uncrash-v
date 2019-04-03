@@ -1,4 +1,5 @@
 export default {
+  banner: 'Fast website and server uptime monitoring.',
   Login: {
     tab1: {
       tabTitle: '用户名或邮箱',

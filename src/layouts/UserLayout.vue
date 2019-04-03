@@ -9,7 +9,7 @@
           </a>
         </div>
         <div class="desc">
-          Fast website and server uptime monitoring.
+          {{ $t('banner') }}
         </div>
       </div>
 
@@ -26,19 +26,24 @@
         </div>
       </div>
     </div>
+    <lang-selector :lang-list="langList" />
   </div>
 </template>
 
 <script>
 import RouteView from './RouteView'
+import LangSelector from '@/components/LangSelector'
+import langList from '@/locales/langs'
 import { mixinDevice } from '@/utils/mixin'
 
 export default {
   name: 'UserLayout',
-  components: { RouteView },
+  components: { RouteView, LangSelector },
   mixins: [mixinDevice],
   data () {
-    return {}
+    return {
+      langList
+    }
   },
   mounted () {
     document.body.classList.add('userLayout')
