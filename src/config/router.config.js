@@ -38,7 +38,7 @@ export const asyncRouterMap = [
         name: 'list',
         component: PageView,
         redirect: '/list/table-list',
-        meta: { title: '列表页', icon: 'table', permission: [ 'table' ] },
+        meta: { title: '服务器', icon: 'database', permission: [ 'table' ] },
         children: [
           {
             path: '/list/table-list',
@@ -48,7 +48,24 @@ export const asyncRouterMap = [
             meta: { title: '查询表格', keepAlive: true, permission: [ 'table' ] }
           }
         ]
+      },
+
+      // api
+      {
+        path: '/api',
+        name: 'apiPage',
+        component: () => import('@/views/apis'),
+        meta: { title: '开放平台', icon: 'key', permission: [ 'table' ] }
+      },
+
+      // 告警信息
+      {
+        path: '/warning',
+        name: 'warningPage',
+        component: () => import('@/views/warning'),
+        meta: { title: '告警', icon: 'info-circle', permission: [ 'table' ] }
       }
+
     ]
   }
 ]

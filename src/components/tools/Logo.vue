@@ -1,7 +1,7 @@
 <template>
   <div class="logo">
     <router-link :to="{name:'dashboard'}">
-      <LogoSvg alt="logo" />
+      <img src="/favicon.png" alt="logo">
       <h1 v-if="showTitle">
         {{ title }}
       </h1>
@@ -10,17 +10,14 @@
 </template>
 
 <script>
-import LogoSvg from '@/assets/logo.svg?inline'
-
 export default {
   name: 'Logo',
   components: {
-    LogoSvg
   },
   props: {
     title: {
       type: String,
-      default: 'Ant Design Pro',
+      default: 'Uncrash Pro',
       required: false
     },
     showTitle: {

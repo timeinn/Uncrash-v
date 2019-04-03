@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="links">
-      <a href="https://pro.loacg.com/" target="_blank">使用教程</a>
+      <a href="https://pro.loacg.com/" target="_blank">Documentation</a>
       <a href="https://github.com/TimeInn/Uncrash-v" target="_blank">
         <a-icon type="github" />
       </a>
