@@ -1,5 +1,5 @@
-import Mock from 'mockjs'
-import { builder } from '../utils'
+import Mock from 'mockjs2'
+import { builder } from '../util'
 
 const info = () => {
   return builder({

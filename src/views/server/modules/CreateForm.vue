@@ -109,7 +109,7 @@
           </a-form-item>
 
           <a-form-item label="端口号">
-            <a-select v-decorator="['portSelect', {rules:[{required: true}]}]" @change="(value) => form.setFieldsValue({ port: value })">
+            <a-select v-decorator="['portSelect', {initialValue: -1, rules:[{required: true}]}]" @change="(value) => form.setFieldsValue({ port: value })">
               <a-select-option key="-1" :value="-1">请选择</a-select-option>
               <a-select-opt-group key="service" label="服务端口">
                 <a-select-option key="80" :value="80">HTTP (80)</a-select-option>
@@ -120,13 +120,13 @@
                 <a-select-option key="110" :value="110">POP3 (110)</a-select-option>
                 <a-select-option key="143" :value="143">IMAP (143)</a-select-option>
               </a-select-opt-group>
-              <a-select-opt-group key="custom" label="自定义">
-                <a-select-option key="0" :value="80">自定义端口</a-select-option>
+              <a-select-opt-group label="自定义">
+                <a-select-option key="custom" :value="0">自定义端口</a-select-option>
               </a-select-opt-group>
             </a-select>
           </a-form-item>
 
-          <a-form-item v-show="form.getFieldValue('portSelect') === 'custom'" label="自定义端口号">
+          <a-form-item v-show="form.getFieldValue('portSelect') === 0" label="自定义端口号">
             <a-input v-decorator="['port', {initialValue: 22, rules:[{required: true}]}]" />
           </a-form-item>
 

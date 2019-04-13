@@ -7,11 +7,13 @@ import 'nprogress/nprogress.css'
 import { setDocumentTitle } from '@/utils/domUtil'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 
+const siteName = 'Uncrash Pro'
+
 const whiteList = ['login', 'register', 'registerResult'] // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(to.meta.title))
+  to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - ${siteName}`))
   if (Vue.storage.get(ACCESS_TOKEN)) {
     if (to.path === '/user/login') {
       next({ path: '/dashboard/workplace' })

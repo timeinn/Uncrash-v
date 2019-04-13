@@ -37,7 +37,7 @@ export const asyncRouterMap = [
         path: '/server-list',
         name: 'serverList',
         component: () => import('@/views/server/TableList'),
-        meta: { title: '服务器', icon: 'database', permission: [ 'table' ] }
+        meta: { title: '监控', icon: 'database', permission: [ 'table' ] }
       },
 
       // api
