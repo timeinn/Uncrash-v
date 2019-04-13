@@ -44,6 +44,7 @@ import {
   Progress,
   Skeleton,
   Popconfirm,
+  Slider,
   message,
   notification
 } from 'ant-design-vue'
@@ -83,6 +84,7 @@ Vue.use(DatePicker)
 Vue.use(TimePicker)
 Vue.use(Upload)
 Vue.use(Progress)
+Vue.use(Slider)
 Vue.use(Skeleton)
 Vue.use(Popconfirm)
 // Vue.use(notification)

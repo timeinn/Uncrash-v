@@ -78,7 +78,7 @@
       </div>
 
       <s-table
-        v-if="false"
+        v-if="true"
         ref="table"
         size="default"
         rowKey="key"
